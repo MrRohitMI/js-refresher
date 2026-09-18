@@ -190,10 +190,14 @@ console.log(actionMovie);
 
 // Task 6:
 const baleDramaMovies = movies
-  .filter(
-    (movie) =>
-      movie.actors.includes("Christian Bale") && movie.genre === "Drama",
-  )
+  .filter((movie) => {
+    for (let i = 0; i < movie.actors.length; i++) {
+      if (movie.actors[i] === "Christian Bale" && movie.genre === "Drama") {
+        return true;
+      }
+    }
+    return false;
+  })
   .map((movie) => movie.title);
 
 console.log(baleDramaMovies);
@@ -201,7 +205,14 @@ console.log(baleDramaMovies);
 // Task 7:
 
 const timDramaMovies = movies
-  .filter((movie) => movie.actors.includes("Tim Robbins"))
+  .filter((movie) => {
+    for (let i = 0; i < movie.actors.length; i++) {
+      if (movie.actors[i] === "Tim Robbins") {
+        return true;
+      }
+    }
+    return false;
+  })
   .filter((movie) => movie.genre === "Drama")
   .map((movie) => movie.title);
 
